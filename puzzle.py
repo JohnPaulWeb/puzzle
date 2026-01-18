@@ -141,3 +141,44 @@ class puzzle:
                                                                 print("\n" * 50)
 
                                                                 print("Room 3: The Memory Sanctum")
+                                                                print("The runes have vanished! Recreate the pattern.\n")
+
+                                                                for attempt in range(2):
+                                                                    print("Enter the runes in order, (space-separated):")
+                                                                    user_input = input("Your pattern: ").strip().split()
+
+                                                                     if len(user_input) == 3 and user_input == pattern:
+                                                                        print("\nYou mastered the pattern! A hidden chest appears")
+                                                                        self.player.inventory.append("Mystic Amulet")
+                                                                        return True
+                                                                else:
+                                                                    if attempt == 0:
+                                                                        print("That's not quite right. Try again.\n")
+                                                                    else:
+                                                                        print(f"\nThe correct pattern was: {' '.join(pattern)}")
+                                                                        return False
+                                                                    
+                                                                    return False
+                                                                def puzzle_word_ladder(self):
+                                                                    """Room 4: Word Transformation Puzzle"""
+                                                                    print("\n[Room 4: The Word Tower")
+                                                                    print("-" * 40)
+                                                                    print("Transform one word into another by changing.")
+                                                                    print("one letter at a time. Each step must be a valid word.\n")
+
+                                                                    puzzle = [
+                                                                        {"start": "FIRE", "end": "WATER", "hint": "Start with Fire, try changing letters to reach Water"},
+                                                                        {"start": "GOOD", "end": "EVIL", "hint": "Start with Good, try changing letters to reach Evil"}
+                                                                    ]
+
+                                                                    puzzle = random.choice(puzzles)
+                                                                    print(f"Transform {puzzle['start']} → {puzzle['end']}")
+                                                                    print(f"Hint: {puzzle['hint']}\n")
+                                                                    
+
+                                                                    solution_attempt = input("Enter your solution (steps separated by spaces): ").upper().strip()
+                                                                    steps = solution_attempt.split()
+
+                                                                    if len(steps) >= 2 and steps[0] == puzzle['start'] and steps[-1] == puzzle['end']:
+                                                                        print("\nYou found a path! the Tower rumbles and settles")
+                                                                    
