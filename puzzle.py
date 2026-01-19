@@ -181,4 +181,19 @@ class puzzle:
 
                                                                     if len(steps) >= 2 and steps[0] == puzzle['start'] and steps[-1] == puzzle['end']:
                                                                         print("\nYou found a path! the Tower rumbles and settles")
+                                                                        self.player_inventory.append("Ancient Scroll")
+                                                                        return True
+                                                                    else:
+                                                                        print(f"\nExample solution might be: {puzzle['start']} → FIER → TIER → TIAR → TEAR → SEAR → WEAR → WARE → WARD → WART → WART → WART → WART... (Note: this is a hard puzzle)")
+                                                                        return False
+                                                                    
+
+                                                                    def display_status(self):
+                                                                        print(f"\n[Status] Rooms Completed: {self.rooms_completed}/4")
+                                                                        print(f"[Inventory] {', '.join(self.player_inventory) if self.player_inventory else 'Empty'}")
+                                                                        priint("-" * 40)
+
+                                                                        def play_game(self):
+                                                                            self.display_title()
+                                                                            self.get_player_name()
                                                                     
