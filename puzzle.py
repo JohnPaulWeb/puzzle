@@ -196,4 +196,35 @@ class puzzle:
                                                                         def play_game(self):
                                                                             self.display_title()
                                                                             self.get_player_name()
-                                                                    
+
+                                                                            rooms = [
+                                                                                self.puzzle_riddler,
+                                                                                self.puzzle_logic_sequence,
+                                                                                self.puzzle_memory_game,
+                                                                                self.puzzle_word_ladder
+                                                                            ]
+
+                                                                            for room_func in room:
+                                                                                self.display_status()
+
+                                                                                if room_func():
+                                                                                    self.rooms_completed += 1
+                                                                                    print("\nYou proceed to the next chamber...")
+                                                                                else:
+                                                                                    print("\nYou must try again")
+                                                                                    retry = input("Try this puzzle again? (yes/no): ").lower().strip()
+                                                                                    if retry == "yes":
+                                                                                        if room_func():
+                                                                                            self.rooms_completed += 1
+                                                                                            print("\nYou proceed to the next chamber...")
+                                                                                        else:
+                                                                                            print("You're force to retreat")
+                                                                                            break
+                                                                                    else:
+                                                                                         print("You're force to retreat")
+                                                                                            break
+                                                                                    
+                                                                                    self.display_ending()
+
+                                                                                    def display_ending(self):
+                                                                                        print("\n" + "="*60)
