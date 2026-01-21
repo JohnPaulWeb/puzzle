@@ -228,3 +228,39 @@ class puzzle:
 
                                                                                     def display_ending(self):
                                                                                         print("\n" + "="*60)
+                                                                                        print("ADVENTURE COMPLETE".center(60))
+                                                                                        print("="*60)
+
+                                                                                        if self.rooms_completed == 4:
+                                                                                            print(f"\nCongratulations, {self.player_name}!")
+                                                                                            print("You have conquered all chambers and emerged victorious!")
+                                                                                            print("With all magical items, you are now a legendary adventurer!\n")
+                                                                                            print("Items Collected:")
+                                                                                            for item in self.player_inventory:
+                                                                                                print(f" ✦  {item}")
+                                                                                                
+                                                                                            elif self.rooms_completed >= 2:
+                                                                                            print(f"\nWell done, {self.player_name}!")
+                                                                                            print(f"You completed {self.rooms_completed} chambers. Your Journey was successful!")
+                                                                                            print("ITEMS COLLECTED:")
+                                                                                            for item in self.player_inventory:
+                                                                                                print(f" ✦  {item}")
+                                                                                        else:
+                                                                                            print(f"\nBetter luck next time, {self.player_name}.")
+                                                                                            print("The dungeon still holds many mysteries for your return.")
+
+                                                                                            print("\n" + "="*60 + "\n")
+                                                                                        
+                                                                                        def main():
+                                                                                            game = PuzzleGame()
+                                                                                            game.play_game()
+
+                                                                                            play_again = input("Would you like to play again? (yes/no): ").lower().strip()
+                                                                                            if play_again == "yes":
+                                                                                                main()
+                                                                                            else:
+                                                                                                print("Thank you for playing! Farewell, adventurer.")
+
+                                                                                                if __name__ == "__main__":
+                                                                                                    main()
+
