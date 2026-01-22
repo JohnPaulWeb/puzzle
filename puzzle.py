@@ -1,6 +1,8 @@
 import random
 import time
 
+
+# Puzzle Game 
 class puzzle:
     def __init__(self):
         self.player_inventory = []
